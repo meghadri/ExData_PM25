@@ -37,6 +37,8 @@ for(y in yrsInDataSet) {
 dfVehiclesByYr <-  data.frame(vecYears, vecSumEmissions, vecCity)
 library(ggplot2)
 
+png("plot6.png", width=640, height=480)
+
 plot <- qplot(dfVehiclesByYr$vecYears, 
               dfVehiclesByYr$vecSumEmissions, 
               data = dfVehiclesByYr, 
@@ -53,6 +55,8 @@ plot <- qplot(dfVehiclesByYr$vecYears,
           legend.title=element_blank())
 
 print(plot)
+
+dev.off()
 
 
 ###

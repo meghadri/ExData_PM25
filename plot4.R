@@ -27,6 +27,8 @@ for(y in yrsInDataSet) {
 
 dfCoalCombustByYr <-  data.frame(vecYears, vecSumEmissions)
 
+png("plot4.png", width=640, height=480)
+
 plot(dfCoalCombustByYr$vecSumEmissions ~dfCoalCombustByYr$vecYears, type='p', pch=5, xlab='Year', ylab=expression(PM[2.5] * ' Emissions'), xaxt='n', axes=F, col.lab = 'forestgreen')
 abline(lm(dfCoalCombustByYr$vecSumEmissions~dfCoalCombustByYr$vecYears), col='red', lwd=2)
 box()
@@ -37,3 +39,4 @@ axis(side=2, at=xticksAt)
 
 title(main=expression('Annual Cumulative ' * PM[2.5] * ' Emissions from Coal Combustion in the United States'), col.main='midnightblue')
 
+dev.off();

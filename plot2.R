@@ -26,6 +26,7 @@ for(y in yrsInDataSet) {
 
 dfSumBaltimoreEmissionsByYr <- data.frame(vecYears, vecSumEmissionsBaltimore) 
 
+png("plot2.png", width=640, height=480)
 
 plot(dfSumBaltimoreEmissionsByYr$vecSumEmissions ~dfSumBaltimoreEmissionsByYr$vecYears, type='p', pch=5, xlab='Year', ylab=expression(PM[2.5] * ' Emissions'), xaxt='n', axes=F, col.lab = 'forestgreen')
 abline(lm(dfSumBaltimoreEmissionsByYr$vecSumEmissions~dfSumBaltimoreEmissionsByYr$vecYears), col='red', lwd=2)
@@ -36,6 +37,7 @@ xticksAt <- seq(from=min(dfSumBaltimoreEmissionsByYr$vecSumEmissions), to=max(df
 axis(side=2, at=xticksAt)
 title(main=expression('Annual Cumulative ' * PM[2.5] * ' Emissions in Baltimore (1999-2008)'), col.main='midnightblue')
 
+dev.off();
 ##
 ## Conclusion - Total emission has reduced, but there was an increase from 2002 to 2005.
 ##

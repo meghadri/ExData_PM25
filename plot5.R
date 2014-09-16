@@ -26,6 +26,7 @@ for(y in yrsInDataSet) {
 
 dfBaltimoreVehiclesByYr <-  data.frame(vecYears, vecSumEmissions)
 
+png("plot5.png", width=640, height=480)
 
 plot(dfBaltimoreVehiclesByYr$vecSumEmissions ~dfBaltimoreVehiclesByYr$vecYears, type='p', pch=5, xlab='Year', ylab=expression(PM[2.5] * ' Emissions'), xaxt='n', axes=F, col.lab = 'forestgreen')
 abline(lm(dfBaltimoreVehiclesByYr$vecSumEmissions~dfBaltimoreVehiclesByYr$vecYears), col='red', lwd=2)
@@ -37,3 +38,4 @@ axis(side=2, at=xticksAt)
 
 title(main=expression('Annual Cumulative ' * PM[2.5] * ' Emissions from Vehicles in Baltimore'), col.main='midnightblue')
 
+dev.off()

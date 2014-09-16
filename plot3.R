@@ -34,6 +34,9 @@ dfSumBaltimoreEmissionsByTypeForYr <- data.frame(vecYears, vecType, vecSumForTyp
 
 
 library(ggplot2)
+
+png("plot3.png", width=640, height=480)
+
 plot <- qplot(dfSumBaltimoreEmissionsByTypeForYr$vecYears, 
               dfSumBaltimoreEmissionsByTypeForYr$vecSumForType, 
               data = dfSumBaltimoreEmissionsByTypeForYr, 
@@ -51,3 +54,4 @@ plot <- qplot(dfSumBaltimoreEmissionsByTypeForYr$vecYears,
 
 print(plot)
 
+dev.off();

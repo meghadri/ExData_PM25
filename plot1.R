@@ -27,7 +27,7 @@ for(y in yrsInDataSet) {
 
 dfSumEmissionsByYr <- data.frame(vecYears, vecSumEmissions) 
 
-
+png("plot1.png", width=640, height=480)
 plot(dfSumEmissionsByYr$vecSumEmissions ~dfSumEmissionsByYr$vecYears, type='p', pch=5, xlab='Year', ylab=expression(PM[2.5] * ' Emissions'), xaxt='n', axes=F, , col.lab = 'forestgreen')
 abline(lm(dfSumEmissionsByYr$vecSumEmissions~dfSumEmissionsByYr$vecYears), col='red', lwd=2)
 box()
@@ -40,3 +40,5 @@ axis(side=2, at=xticksAt)
 ## Conclusion - Total emission has reduced between 1999 and 2008. There is a precipitous drop between 1999 and 2002, and again between 2005 and 2008
 ##
 title(main=expression('Annual Cumulative ' * PM[2.5] * ' Emissions in the United States'), col.main='midnightblue')
+
+dev.off()
