@@ -39,4 +39,6 @@ axis(side=2, at=xticksAt)
 
 title(main=expression('Annual Cumulative ' * PM[2.5] * ' Emissions from Coal Combustion in the United States'), col.main='midnightblue')
 
-dev.off();
+dev.off()
+
+### Conclusion - Total emissions from coal combustion sources, across the United States, have reduced overall between 1999-2009. There was a slight increase between 2002 and 2005.

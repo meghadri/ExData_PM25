@@ -37,7 +37,8 @@ xticksAt <- seq(from=min(dfSumBaltimoreEmissionsByYr$vecSumEmissions), to=max(df
 axis(side=2, at=xticksAt)
 title(main=expression('Annual Cumulative ' * PM[2.5] * ' Emissions in Baltimore (1999-2008)'), col.main='midnightblue')
 
-dev.off();
+dev.off()
+
 ##
 ## Conclusion - Total emission has reduced, but there was an increase from 2002 to 2005.
 ##

@@ -54,4 +54,6 @@ plot <- qplot(dfSumBaltimoreEmissionsByTypeForYr$vecYears,
 
 print(plot)
 
-dev.off();
+dev.off()
+
+### Conclusion - Road, nonroad, nonpoint types have decreased over the period 1999 through 2008, while PM2.5 emissions of type point have increased in the same period for Baltimore City. 

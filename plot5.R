@@ -39,3 +39,4 @@ axis(side=2, at=xticksAt)
 title(main=expression('Annual Cumulative ' * PM[2.5] * ' Emissions from Vehicles in Baltimore'), col.main='midnightblue')
 
 dev.off()
+
