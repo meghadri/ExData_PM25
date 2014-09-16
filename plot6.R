@@ -37,12 +37,26 @@ for(y in yrsInDataSet) {
 dfVehiclesByYr <-  data.frame(vecYears, vecSumEmissions, vecCity)
 library(ggplot2)
 
+
+emBalt1999 <- dfVehiclesByYr[dfVehiclesByYr$vecYears == 1999 & dfVehiclesByYr$vecCity == 'Baltimore, MD', ]$vecSumEmissions
+emBalt2008 <- dfVehiclesByYr[dfVehiclesByYr$vecYears == 2008 & dfVehiclesByYr$vecCity == 'Baltimore, MD', ]$vecSumEmissions
+emLA1999 <- dfVehiclesByYr[dfVehiclesByYr$vecYears == 1999 & dfVehiclesByYr$vecCity == 'Los Angeles County, CA', ]$vecSumEmissions
+emLA2008 <- dfVehiclesByYr[dfVehiclesByYr$vecYears == 2008 & dfVehiclesByYr$vecCity == 'Los Angeles County, CA', ]$vecSumEmissions
+
+emChngBalt <- round(((emBalt2008 - emBalt1999)/emBalt1999) * 100, digits=2)
+emChngLA <- round(((emLA2008 - emLA1999)/emLA1999) * 100, digits=2)
+
+
+lblLegendBaltimore <- paste("Baltimore, MD (Change: ", emChngBalt, "%)")
+lblLegendLA <- paste("Los Angeles County, CA (Change: ", emChngLA, "%)")
+
 png("plot6.png", width=640, height=480)
 
 plot <- qplot(dfVehiclesByYr$vecYears, 
               dfVehiclesByYr$vecSumEmissions, 
               data = dfVehiclesByYr, 
-              color = dfVehiclesByYr$vecCity, 
+##              color = dfVehiclesByYr$vecCity, 
+              color = factor(dfVehiclesByYr$vecCity, labels = c(lblLegendBaltimore, lblLegendLA)),
               geom = c("point", "smooth")) +
     geom_smooth() + theme_bw() +
     geom_point(size=6, alpha = I(.5)) +
@@ -53,6 +67,7 @@ plot <- qplot(dfVehiclesByYr$vecYears,
           legend.position='top', 
           plot.title=element_text(face='bold', size='20', color='midnightblue'), 
           legend.title=element_blank())
+
 
 print(plot)
 

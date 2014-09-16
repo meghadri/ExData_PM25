@@ -34,3 +34,6 @@ How have emissions from motor vehicle sources changed from 1999???2008 in Baltim
 
 ***
 Compare emissions from motor vehicle sources in Baltimore City with emissions from motor vehicle sources in Los Angeles County, California (fips == "06037"). Which city has seen greater changes over time in motor vehicle emissions?
+
+ Conclusion - Emissions from motor vehicle sources have decreased in Baltimore City by over 74% while they have increased in Los Angeles County by about 4%.
+ 
